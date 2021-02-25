@@ -1,0 +1,15 @@
+{
+    "name": "parth/custom-mvc",
+    "authors": [
+        {
+            "name": "Parth KaPatel",
+            "email": "parth9427@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {}
+}
