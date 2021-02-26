@@ -10,6 +10,11 @@ use app\core\Request;
 
 class SiteController extends Controller
 {
+    public function home(): string
+    {
+        return $this->render('home');
+    }
+
     public function contact(): string
     {
         return $this->render('contact');
