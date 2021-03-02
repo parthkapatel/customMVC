@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\core\form;
+namespace app\core\db;
 
 
 use app\core\Application;
@@ -12,6 +12,7 @@ abstract class DbModel extends Model
 
     abstract public function tableName() : string;
     abstract  public function attributes() : array;
+    abstract  public function primaryKey() : string;
 
     public function save()
     {
@@ -28,5 +29,17 @@ abstract class DbModel extends Model
 
     public function prepare($sql){
         return Application::$app->db->pdo->prepare($sql);
+    }
+
+    public function findOne($where){
+        $tableName = static::tableName();
+        $attributes = array_keys($where);
+        $sql = implode("And" ,array_map(fn($attr) => "$attr = :$attr",$attributes));
+        $statement = self::prepare("select * from $tableName where $sql ");
+        foreach ($where as $key => $item) {
+            $statement->bindValue(":$key",$item);
+        }
+        $statement->execute();
+        return $statement->fetchObject(static::class);
     }
 }

@@ -2,11 +2,14 @@
 
 namespace app\core;
 
+use app\core\exception\NotFoundException;
+
 class Router
 {
     public Request $request;
     protected array $routes = [];
     public Response $response;
+
 
     /**
      * Router constructor.
@@ -36,45 +39,26 @@ class Router
         $callback = $this->routes[$method][$path] ?? false ;
 
         if($callback === false){
-            $this->response->setStatusCode(404);
-            return $this->renderView("/errors/_404");
+            //$this->response->setStatusCode(404);
+            throw new NotFoundException();
+            //return $this->renderView("/errors/_404");
         }
         if(is_string($callback)){
-            return $this->renderView($callback);
+            return Application::$app->view->renderView($callback);
         }
         if(is_array($callback)){
-            Application::$app->controller = new $callback[0]();
-            $callback[0] = Application::$app->controller;
+            /**
+             * @var Controller $controller
+             */
+            $controller = new $callback[0]();
+            Application::$app->controller = $controller;
+            $controller->action = $callback[1];
+            $callback[0] = $controller;
+            foreach ($controller->getMiddlewares() as $middleware) {
+                $middleware->execute();
+            }
         }
-        return call_user_func($callback,$this->request);
-    }
 
-    public function renderView($view,$params = []){
-        $layoutContent = $this->layoutContent();
-        $viewContent = $this->renderOnlyView($view,$params);
-        return str_replace('{{content}}',$viewContent,$layoutContent);
-
-    }
-
-    protected function layoutContent(){
-        $layout = Application::$app->controller->layout;
-        ob_start();
-        include_once Application::$ROOT_DIR."/views/layouts/$layout.php";
-        return ob_get_clean();
-    }
-
-    protected function renderOnlyView($view,$params){
-
-        foreach ($params as $key => $value) {
-            $$key  = $value;
-        }
-        ob_start();
-        include_once Application::$ROOT_DIR."/views/$view.php";
-        return ob_get_clean();
-    }
-
-    public function renderContent($viewContent){
-        $layoutContent = $this->layoutContent();
-        return str_replace('{{content}}',$viewContent,$layoutContent);
+        return call_user_func($callback,$this->request,$this->response);
     }
 }

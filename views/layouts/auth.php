@@ -8,12 +8,12 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title><?php echo $this->title ?></title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">MVC Demo</a>
+        <a class="navbar-brand" href="/">MVC Demo Auth</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

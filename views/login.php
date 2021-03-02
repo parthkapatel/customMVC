@@ -1,14 +1,22 @@
+<?php
+/** @var $model User
+ *  @var $this \app\core\View
+ */
+
+use app\core\form\Form;
+use app\models\User;
+
+
+$this->title = "Log In";
+
+?>
+
 <div class="container">
     <h1>Log In</h1>
-    <form method="post" action="">
-        <div class="mb-3">
-            <label  class="form-label">Email</label>
-            <input type="email" name="email" class="form-control" >
-        </div>
-        <div class="mb-3">
-            <label  class="form-label">Password</label>
-            <input type="password" name="pwd" class="form-control" >
-        </div>
-        <button type="submit" class="btn btn-primary">Login</button>
-    </form>
+
+    <?php $form = Form::begin('',"post") ?>
+    <?php echo $form->field($model,"email") ?>
+    <?php echo $form->field($model,"password")->passwordField() ?>
+    <button type="submit" class="btn btn-primary m-1">Login </button>
+    <?php  Form::end() ?>
 </div>
