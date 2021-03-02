@@ -1,0 +1,15 @@
+{
+    "name": "parthkapatel/php-mvc-core",
+    "authors": [
+        {
+            "name": "parth",
+            "email": "parth9427@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "parthkapatel\\phpmvc\\": "."
+        }
+    }
+}
