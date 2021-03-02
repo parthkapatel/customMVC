@@ -1,12 +1,12 @@
 <?php
 
 /** @var $model Model */
-use app\core\form\Form;
-use app\core\Model;
+use parthkapatel\phpmvc\form\Form;
+use parthkapatel\phpmvc\Model;
 
 
 /**
- * @var $this \app\core\View
+ * @var $this \parthkapatel\phpmvc\View
  */
 
 

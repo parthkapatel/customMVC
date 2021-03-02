@@ -1,6 +1,6 @@
 <?php
 
-use app\core\Application;
+use parthkapatel\phpmvc\Application;
 
 
 ?>

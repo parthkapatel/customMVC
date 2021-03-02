@@ -4,10 +4,10 @@
 namespace app\controllers;
 
 
-use app\core\Application;
-use app\core\Controller;
-use app\core\Request;
-use app\core\Response;
+use parthkapatel\phpmvc\Application;
+use parthkapatel\phpmvc\Controller;
+use parthkapatel\phpmvc\Request;
+use parthkapatel\phpmvc\Response;
 use app\models\ContactForms;
 
 class SiteController extends Controller

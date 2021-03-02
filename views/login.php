@@ -1,9 +1,9 @@
 <?php
 /** @var $model User
- *  @var $this \app\core\View
+ *  @var $this \parthkapatel\phpmvc\View
  */
 
-use app\core\form\Form;
+use parthkapatel\phpmvc\form\Form;
 use app\models\User;
 
 

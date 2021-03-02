@@ -2,7 +2,7 @@
 
 
 use app\controllers\AuthController;
-use app\core\Application;
+use parthkapatel\phpmvc\Application;
 use app\controllers\SiteController;
 
 

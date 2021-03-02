@@ -13,6 +13,10 @@ class ComposerStaticInit4aa419e4a9e23519b513c2b22b373fde
     );
 
     public static $prefixLengthsPsr4 = array (
+        'p' => 
+        array (
+            'parthkapatel\\phpmvc\\' => 20,
+        ),
         'a' => 
         array (
             'app\\' => 4,
@@ -38,6 +42,10 @@ class ComposerStaticInit4aa419e4a9e23519b513c2b22b373fde
     );
 
     public static $prefixDirsPsr4 = array (
+        'parthkapatel\\phpmvc\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/parthkapatel/php-mvc-core',
+        ),
         'app\\' => 
         array (
             0 => __DIR__ . '/../..' . '/',

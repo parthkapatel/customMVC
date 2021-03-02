@@ -4,7 +4,7 @@ class m0001_initial{
 
     public function up()
     {
-        $db = \app\core\Application::$app->db;
+        $db = \parthkapatel\phpmvc\Application::$app->db;
         $SQL = "create table if not exists users(
                         id int auto_increment primary key,
                         email varchar(255) not null,
@@ -18,7 +18,7 @@ class m0001_initial{
     }
 
     public function down(){
-        $db = \app\core\Application::$app->db;
+        $db = \parthkapatel\phpmvc\Application::$app->db;
         $sql = "drop table if exists users;";
         $db->pdo->exec($sql);
         echo "Down migration".PHP_EOL;
