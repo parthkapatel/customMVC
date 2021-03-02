@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'd3d9d2fd986d2a9ad9ccbab421e1a6864bd255f4',
+    'reference' => 'f95655ff925e73f48aad4764b82ee90072c3287c',
     'name' => 'parth/custom-mvc',
   ),
   'versions' => 
@@ -27,7 +27,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'd3d9d2fd986d2a9ad9ccbab421e1a6864bd255f4',
+      'reference' => 'f95655ff925e73f48aad4764b82ee90072c3287c',
     ),
     'parthkapatel/php-mvc-core' => 
     array (

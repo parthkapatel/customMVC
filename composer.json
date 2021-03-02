@@ -14,6 +14,6 @@
     "require": {
       "ext-pdo": "*",
         "vlucas/phpdotenv": "^5.3",
-        "parthkapatel/php-mvc-core": "^1.0"
+        "parthkapatel/php-mvc-core": "^1.0.3"
     }
 }
