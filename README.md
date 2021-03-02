@@ -1,3 +1,3 @@
 # customMVC
 
-After the successful installation create the .env same like .env.example file
+After the successful installation create the .env file same like .env.example file
