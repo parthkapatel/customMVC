@@ -38,6 +38,8 @@ class Application
             $this->user = null;
         }
 
+
+
     }
 
 

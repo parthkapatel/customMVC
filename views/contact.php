@@ -18,7 +18,7 @@ $this->title = "Contact Us";
 <?php $form = \parthkapatel\phpmvc\form\Form::begin('',"post") ?>
     <?php echo $form->field($model,"subject") ?>
     <?php echo $form->field($model,"email") ?>
-    <?php echo new TextareaField($model,"body") ?>
+    <?php echo new TextareaField($model,"description") ?>
     <button type="submit" class="btn btn-primary m-1">Submit</button>
 <?php \parthkapatel\phpmvc\form\Form::end() ?>
 

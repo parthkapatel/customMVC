@@ -1,28 +1,35 @@
 <?php
 /**
- * @var $this \parthkapatel\phpmvc\View
+ * @var $this View
  */
 
 
+use parthkapatel\phpmvc\View;
+use \parthkapatel\phpmvc\Application;
+
 $this->title = "Profile";
+
+$fullname = Application::$app->user->getUserData()["firstname"]." ".Application::$app->user->getUserData()["lastname"];
+$email = Application::$app->user->getUserData()["email"];
+$eid = Application::$app->user->getUserData()["id"];
 
 ?>
 
 <div class="container">
-    <h1>Profile</h1>
-    <form method="post" action="">
-        <div class="mb-3">
-            <label class="form-label">Name</label>
-            <input type="text" name="fname" class="form-control" >
+    <?php if(Application::$app->session->getFlash('update')) :  ?>
+        <div class="alert alert-success m-1  fade show" >
+            <?php echo Application::$app->session->getFlash('update')  ?>
         </div>
-        <div class="mb-3">
-            <label  class="form-label">Last Name</label>
-            <input type="email" name="email" class="form-control" >
+    <?php endif; ?>
+    <h1>Profile</h1>    
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Name : <?php echo $fullname ?></h5>
+            <p class="card-text">Email Id : <?php echo $email ?></p>
         </div>
-        <div class="mb-3">
-            <label  class="form-label">Description</label>
-            <textarea name="body"  class="form-control"></textarea>
+        <div class="card-footer">
+            <a href="/update" class="btn btn-primary">Update</a>
+            <a href="/delete" class="btn btn-danger">Delete</a>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
 </div>

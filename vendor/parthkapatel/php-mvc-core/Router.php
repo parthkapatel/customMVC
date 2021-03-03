@@ -25,6 +25,7 @@ class Router
     public function get($path,$callback)
     {
         $this->routes['get'][$path] = $callback;
+
     }
 
     public function post($path,$callback)
@@ -39,9 +40,7 @@ class Router
         $callback = $this->routes[$method][$path] ?? false ;
 
         if($callback === false){
-            //$this->response->setStatusCode(404);
             throw new NotFoundException();
-            //return $this->renderView("/errors/_404");
         }
         if(is_string($callback)){
             return Application::$app->view->renderView($callback);
@@ -57,8 +56,9 @@ class Router
             foreach ($controller->getMiddlewares() as $middleware) {
                 $middleware->execute();
             }
-        }
 
+
+        }
         return call_user_func($callback,$this->request,$this->response);
     }
 }

@@ -5,7 +5,6 @@ namespace app\models;
 
 
 use parthkapatel\phpmvc\form\DbModel;
-use parthkapatel\phpmvc\Model;
 use parthkapatel\phpmvc\UserModel;
 
 class User extends UserModel
@@ -14,6 +13,7 @@ class User extends UserModel
     const STATUS_ACTIVE = 1;
     const STATUS_DELETE = 2;
 
+    public string $id = '';
     public string $firstname = '';
     public string $lastname = '';
     public string $email = '';
@@ -28,7 +28,7 @@ class User extends UserModel
 
     public function primaryKey(): string
     {
-      return 'id';
+        return 'id';
     }
 
     public function save()
@@ -74,4 +74,18 @@ class User extends UserModel
     {
        return $this->firstname.' '.$this->lastname;
     }
+
+    public function getUserData() : array
+    {
+        return [
+            "id" => $this->id,
+            "firstname" => $this->firstname,
+            "lastname" => $this->lastname,
+            "email" => $this->email,
+            "password" => $this->password,
+            "status" => $this->status
+        ];
+    }
+
+
 }
