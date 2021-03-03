@@ -17,8 +17,11 @@ $eid = Application::$app->user->getUserData()["id"];
 
 <div class="container">
     <?php if(Application::$app->session->getFlash('update')) :  ?>
-        <div class="alert alert-success m-1  fade show" >
+        <div class="alert alert-success m-1 alert-dismissible fade show" role="alert">
             <?php echo Application::$app->session->getFlash('update')  ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
     <?php endif; ?>
     <h1>Profile</h1>    

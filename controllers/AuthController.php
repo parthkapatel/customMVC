@@ -52,7 +52,7 @@ class AuthController extends Controller
                 $user->loadData($request->getBody());
                 if ($user->validate() && $user->save()) {
                     Application::$app->session->setFlash("success", 'Thanks for registering!');
-                    Application::$app->response->redirect("/");
+                    Application::$app->response->redirect("/login");
                 }
                 return $this->render("register", [
                     "model" => $user
@@ -105,7 +105,7 @@ class AuthController extends Controller
         $user = Application::$app->user->delete($id);
         if($user){
             Application::$app->logout();
-            return $this->render('/');
+            Application::$app->response->redirect("/");
         }
     }
 }

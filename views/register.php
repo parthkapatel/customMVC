@@ -26,5 +26,6 @@ $this->title = "Registration";
         <?php echo $form->field($model,"password")->passwordField() ?>
         <?php echo $form->field($model,"confirmPassword")->passwordField() ?>
         <button type="submit" class="btn btn-primary m-1">Register</button>
+        <a class="float-right" style="text-decoration: none" href="/login" >Already register? click here</a>
     <?php  Form::end() ?>
 </div>

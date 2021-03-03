@@ -73,11 +73,6 @@ use parthkapatel\phpmvc\Application;
 </nav>
 
 <div class="container-fluid m-0 p-0" style="min-height: 625px;">
-    <?php if(Application::$app->session->getFlash('success')) :  ?>
-    <div class="alert alert-success m-1  fade show" >
-        <?php echo Application::$app->session->getFlash('success')  ?>
-    </div>
-    <?php endif; ?>
     {{content}}
 </div>
 <div class="container-fluid bg-secondary m-0 footer">

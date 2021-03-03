@@ -6,7 +6,7 @@
 
 use parthkapatel\phpmvc\View;
 
-$this->title = "Home";
+$this->title = "MVC Demo";
 
 ?>
 
@@ -35,7 +35,7 @@ $this->title = "Home";
     </a>
 </div>
 
-<div class="jumbotron rounded-0 clearfix w-100 m-0 about" id="about" >
+<div class="jumbotron rounded-0 clearfix w-100 m-0 about" id="about" style="background-color: rgb(48, 71, 94); color: rgb(236, 236, 236);">
     <h1 class="h1 text-center">About Us</h1>
     <div class="col-lg-4 col-md-12 float-right">
         <img src="assets/img/thumbnail-image.jpg" class="img-fluid rounded" alt="image">
@@ -54,7 +54,7 @@ $this->title = "Home";
     </div>
 </div>
 
-<div class="container-fluid m-0 bg-info" id="gallery" onclick="call(this.id)">
+<div class="container-fluid m-0" id="gallery" style="background-color: rgb(34, 40, 49); color: rgb(236, 236, 236);">
     <h1 class="h1 text-center p-3">Gallery</h1>
     <div class="row p-3">
         <div class="col-lg-3 col-md-6 col-sm-12">

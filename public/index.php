@@ -30,6 +30,7 @@ $app->router->get('/',function(){
 });
 
 $app->router->get('/#about',function(){
+
     return (new parthkapatel\phpmvc\Controller)->render('home');
 });
 
