@@ -3,10 +3,11 @@
 /** @var $model Model */
 use parthkapatel\phpmvc\form\Form;
 use parthkapatel\phpmvc\Model;
+use parthkapatel\phpmvc\View;
 
 
 /**
- * @var $this \parthkapatel\phpmvc\View
+ * @var $this View
  */
 
 

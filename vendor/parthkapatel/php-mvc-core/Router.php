@@ -2,8 +2,9 @@
 
 namespace parthkapatel\phpmvc;
 
+use http\Exception\BadConversionException;
 use parthkapatel\phpmvc\exception\NotFoundException;
-
+use Exception;
 class Router
 {
     public Request $request;

@@ -5,8 +5,9 @@ namespace app\models;
 
 
 use parthkapatel\phpmvc\ContactModel;
+use parthkapatel\phpmvc\db\DbModel;
 
-class ContactForms extends ContactModel
+class ContactForms extends DbModel
 {
 
     public string $subject = "";
@@ -16,7 +17,7 @@ class ContactForms extends ContactModel
     {
         return [
             "subject" => [self::RULE_REQUIRED],
-            "email" => [self::RULE_REQUIRED],
+            "email" => [self::RULE_REQUIRED,self::RULE_EMAIL],
             "description" => [self::RULE_REQUIRED],
         ];
     }
@@ -28,8 +29,6 @@ class ContactForms extends ContactModel
             "description" => "Enter Your Description",
         ];
     }
-
-
 
     public function send(): bool
     {

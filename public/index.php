@@ -2,8 +2,12 @@
 
 
 use app\controllers\AuthController;
+use app\controllers\ContactController;
+use app\controllers\ErrorController;
+use app\controllers\RegistrationController;
+use app\controllers\UsersController;
 use parthkapatel\phpmvc\Application;
-use app\controllers\SiteController;
+use parthkapatel\phpmvc\Controller;
 
 
 require_once __DIR__ .'/../vendor/autoload.php';
@@ -23,36 +27,43 @@ $config = [
     ];
 
 
+$controller = new Controller();
 $app = new Application(dirname(__DIR__),$config);
 
-$app->router->get('/',function(){
-    return (new parthkapatel\phpmvc\Controller)->render('home');
+$app->router->get('/',function() use ($controller) {
+    return $controller->render('home');
 });
 
-$app->router->get('/#about',function(){
+$app->router->get('/#about',function() use ($controller) {
 
-    return (new parthkapatel\phpmvc\Controller)->render('home');
+    return $controller->render('home');
 });
 
-$app->router->get('/#gallery',function(){
-    return (new parthkapatel\phpmvc\Controller)->render('home');
+$app->router->get('/#gallery',function() use ($controller) {
+    return $controller->render('home');
 });
 
-$app->router->get('/contact',[SiteController::class,'contact']);
-$app->router->post('/contact',[SiteController::class,'contact']);
+$app->router->get('/contact',[ContactController::class,'index']);
+$app->router->post('/contact',[ContactController::class,'store']);
 
-$app->router->get('/login',[AuthController::class,'login']);
+$app->router->get('/login',[AuthController::class,'index']);
 $app->router->post('/login',[AuthController::class,'login']);
 
-$app->router->get('/register',[AuthController::class,'register']);
-$app->router->post('/register',[AuthController::class,'register']);
+$app->router->get('/register',[RegistrationController::class,'index']);
+$app->router->post('/register',[RegistrationController::class,'register']);
 
-$app->router->get('/logout',[AuthController::class,'logout']);
-$app->router->get('/profile',[AuthController::class,'profile']);
+$app->router->get('/logout',[UsersController::class,'logout']);
+$app->router->get('/profile',[UsersController::class,'profile']);
 
-$app->router->get('/update',[AuthController::class,'update']);
-$app->router->post('/update',[AuthController::class,'update']);
+$app->router->get('/update',[UsersController::class,'update']);
+$app->router->post('/update',[UsersController::class,'updateData']);
 
-$app->router->get('/delete',[AuthController::class,'delete']);
+$app->router->get('/delete',[UsersController::class,'delete']);
+
+$app->router->get('/error/400',[ErrorController::class,'E400']);
+$app->router->get('/error/403',[ErrorController::class,'E403']);
+$app->router->get('/error/404',[ErrorController::class,'E404']);
+$app->router->get('/error/408',[ErrorController::class,'E408']);
+$app->router->get('/error/500',[ErrorController::class,'E500']);
 
 $app->run();

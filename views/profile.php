@@ -9,7 +9,7 @@ use \parthkapatel\phpmvc\Application;
 
 $this->title = "Profile";
 
-$fullname = Application::$app->user->getUserData()["firstname"]." ".Application::$app->user->getUserData()["lastname"];
+$fullname = Application::$app->user->getUserData()["first_name"]." ".Application::$app->user->getUserData()["last_name"];
 $email = Application::$app->user->getUserData()["email"];
 $eid = Application::$app->user->getUserData()["id"];
 

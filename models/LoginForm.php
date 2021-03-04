@@ -20,9 +20,9 @@ class LoginForm extends Model
         ];
     }
 
-    public function login(){
-
-        $user = User::findOne(['email' => $this->email]);
+    public function login(): bool
+    {
+        $user = (new User)->findOne(['email' => $this->email]);
         if(!$user){
             $this->addError('email','User does not exits with this email');
             return false;

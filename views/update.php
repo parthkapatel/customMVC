@@ -2,7 +2,6 @@
 
 /** @var $model Model */
 
-use parthkapatel\phpmvc\Application;
 use parthkapatel\phpmvc\form\Form;
 use parthkapatel\phpmvc\Model;
 use parthkapatel\phpmvc\View;
@@ -13,18 +12,15 @@ use parthkapatel\phpmvc\View;
  */
 
 
-$this->title = "Registration";
-/*$val = $email = Application::$app->user->getUserData();*/
-
+$this->title = "Update Profile";
 ?>
 
 
 <div class="container">
     <h1>Update Profile</h1>
     <?php $form = Form::begin('',"post") ?>
-    <?php echo $form->field($model,"firstname") ?>
-    <?php echo $form->field($model,"lastname") ?>
-    <?php echo $form->field($model,"email") ?>
-    <button type="submit" class="btn btn-primary m-1">Update</button>
+    <?php echo $form->field($model,"first_name") ?>
+    <?php echo $form->field($model,"last_name") ?>
+    <button type="submit" id="updateBtn" class="btn btn-primary m-1">Update</button>
     <?php  Form::end() ?>
 </div>

@@ -4,7 +4,6 @@
 namespace app\models;
 
 
-use parthkapatel\phpmvc\form\DbModel;
 use parthkapatel\phpmvc\UserModel;
 
 class User extends UserModel

@@ -4,6 +4,8 @@
 namespace parthkapatel\phpmvc;
 
 
+use app\models\User;
+
 abstract class Model
 {
     public const RULE_REQUIRED = "required";
